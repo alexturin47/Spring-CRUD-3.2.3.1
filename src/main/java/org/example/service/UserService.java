@@ -1,6 +1,8 @@
 package org.example.service;
 
-import org.example.dao.UserDaoImpl;
+import org.example.dao.UserDao;
+import org.example.dao.UserDaoEntityManagerImpl;
+//import org.example.dao.UserDaoImpl;
 import org.example.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -12,7 +14,7 @@ import java.util.List;
 public class UserService implements UserServiceInterface{
 
     @Autowired
-    private UserDaoImpl userDao;
+    private UserDao userDao;
 
     @Transactional(readOnly = true)
     @Override
@@ -31,12 +33,13 @@ public class UserService implements UserServiceInterface{
     }
 
     @Override
-    public void update(User user) {
-        userDao.update(user);
+    public void update(int id, User user) {
+        userDao.update(id, user);
     }
 
     @Override
-    public void delete(User user) {
-        userDao.delete(user);
+    public void delete(int id) {
+        userDao.delete(id);
     }
+
 }
