@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>All people</title>
+</head>
+<body>
+
+<div class="list" th:each="user : ${users}">
+    <div class="row">
+        <span class="num" th:text="${user.getId()}"></span>
+        <span class="name" th:text="${user.getName()}"></span>
+        <span class="lastname"  th:text="${user.getLastname()}"></span>
+        <span class="age"  th:text="${user.getAge()}"></span>
+    </div>
+</div>
+
+</body>
+<style>
+    .list {
+        width: auto;
+    }
+    .row {
+        border: gray 1px solid;
+        background-color: lightcyan;
+    }
+    .num {
+        width: 25px;
+    }
+    .name{
+        width: 150px;
+    }
+    .lastname {
+        width: 150px;
+    }
+    .age {
+        width: 25px;
+    }
+</style>
+</html>
