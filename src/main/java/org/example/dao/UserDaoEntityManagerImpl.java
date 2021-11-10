@@ -22,8 +22,7 @@ public class UserDaoEntityManagerImpl implements UserDao{
 
     @Override
     public List<User> index() {
-        List<User> list = entityManager.createQuery("select a from User a",User.class).getResultList();
-        return list;
+        return entityManager.createQuery("select a from User a",User.class).getResultList();
     }
 
     @Override
@@ -38,7 +37,7 @@ public class UserDaoEntityManagerImpl implements UserDao{
 
     @Override
     public void update(int id, User user) {
-
+        entityManager.merge(user);
     }
 
     @Override
